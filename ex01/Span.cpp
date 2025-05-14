@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:23:35 by scraeyme          #+#    #+#             */
-/*   Updated: 2025/05/14 15:29:04 by scraeyme         ###   ########.fr       */
+/*   Updated: 2025/05/14 17:32:26 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,30 @@ void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterato
 
 int Span::shortestSpan() const
 {
+	int span = __INT_MAX__;
+
 	if (_size <= 1)
 		throw ("Not enough elements to find shortest span.");
-	return (std::distance(_values.end(), _values.begin()));
+	for (unsigned int i = 0; i < (unsigned int)_values.size(); i++)
+	{
+		if (i && _values[i] - _values[i - 1] > 0 && span > _values[i] - _values[i - 1])
+			span = _values[i] - _values[i - 1];
+	}
+	return (span);
 }
 
 int Span::longestSpan() const
 {
+	int span = 0;
+
 	if (_size <= 1)
 		throw ("Not enough elements to find longest span.");
-	return (std::distance(_values.begin(), _values.end()));
+	for (unsigned int i = 0; i < (unsigned int)_values.size(); i++)
+	{
+		if (i && span < _values[i] - _values[i - 1])
+			span = _values[i] - _values[i - 1];
+	}
+	return (span);
 }
 
 Span::~Span()
