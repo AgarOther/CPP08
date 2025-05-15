@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:23:35 by scraeyme          #+#    #+#             */
-/*   Updated: 2025/05/14 17:32:26 by scraeyme         ###   ########.fr       */
+/*   Updated: 2025/05/15 15:58:01 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,6 @@ void Span::addNumber(int n)
 	if (static_cast<unsigned int>(_values.size()) + 1 > _size)
 		throw ("Max elements of span reached.");
 	_values.push_back(n);
-}
-
-void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
-{
-	while (begin != end)
-	{
-		if (_values.size() == _size)
-			throw ("Max elements of span reached.");
-		addNumber(*begin);
-		++begin;
-	}
 }
 
 int Span::shortestSpan() const

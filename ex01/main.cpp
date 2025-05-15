@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 15:07:10 by scraeyme          #+#    #+#             */
-/*   Updated: 2025/05/14 15:32:08 by scraeyme         ###   ########.fr       */
+/*   Updated: 2025/05/15 16:02:58 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,12 @@ int main()
 		for (int i = 0; i < 15; i++)
 			numbers.push_back(i);
 		Span span(numbers.size());
-		span.addNumber(numbers.begin(), numbers.end());
+		span.addRange(numbers.begin(), numbers.end());
 		std::cout << "Longest span: " << span.longestSpan() << std::endl;
 		std::cout << "Shortest span: " << span.shortestSpan() << std::endl;
 
 		Span spanError(numbers.size() - 1);
-		spanError.addNumber(numbers.begin(), numbers.end());
+		spanError.addRange(numbers.begin(), numbers.end());
 		std::cout << "Longest span: " << spanError.longestSpan() << std::endl;
 		std::cout << "Shortest span: " << spanError.shortestSpan() << std::endl;
 	} catch (const char *err)

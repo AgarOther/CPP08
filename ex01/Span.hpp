@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:23:38 by scraeyme          #+#    #+#             */
-/*   Updated: 2025/05/14 15:27:46 by scraeyme         ###   ########.fr       */
+/*   Updated: 2025/05/15 16:04:46 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,18 @@ class Span
 		int shortestSpan() const;
 		int longestSpan() const;
 		void addNumber(int n);
-		void addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+
+		template <typename T>
+		void addRange(T begin, T end)
+		{
+			while (begin != end)
+			{
+				if (_values.size() == _size)
+					throw ("Max elements of span reached.");
+				addNumber(*begin);
+				++begin;
+			}
+		}
 	private:
 		std::vector<int> _values;
 		unsigned int _size;
