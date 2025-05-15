@@ -18,7 +18,7 @@
 template<typename T>
 int easyfind(T array, int n)
 {
-	std::vector<int>::iterator it = std::find(array.begin(), array.end(), n);
+	typename T::iterator it = std::find(array.begin(), array.end(), n);
 	if (it != array.end())
 		return (*it);
 	throw ("Occurence not found.");
